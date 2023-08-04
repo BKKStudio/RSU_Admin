@@ -15,7 +15,7 @@ import React, { useState, useEffect } from "react";
 
 const getUser = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/users/user", {
+    const res = await fetch("/api/users/user", {
       cache: "no-store",
     });
     if (!res.ok) {
