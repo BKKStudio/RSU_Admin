@@ -9,7 +9,7 @@ import Rechart from './components/Rechart';
 
 const getQuantityData = async (endpoint) => {
   try {
-    const res = await fetch(`http://localhost:3000/api/quantity/${endpoint}`, {
+    const res = await fetch(`api/quantity/${endpoint}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -23,7 +23,7 @@ const getQuantityData = async (endpoint) => {
 };
 const getUser = async () => {
   try {
-    const res = await fetch("http://localhost:3000/api/users/user", {
+    const res = await fetch("api/users/user", {
       cache: "no-store",
     });
     if (!res.ok) {
