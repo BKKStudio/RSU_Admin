@@ -10,10 +10,9 @@ export default function NewStudents() {
   const [level, setLevel] = useState("");
   const [text, setText] = useState("");
   const [show, setShow] = useState(false);
-  const apiUrl = process.env.API_URL;
+
 
   const GetBachelors = async () => {
-    console.log(apiUrl);
     setShow(false);
     try {
       const res = await fetch(`/api/bachelors`, {
