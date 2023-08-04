@@ -23,7 +23,7 @@ const getQuantityData = async (endpoint) => {
 };
 const getUser = async () => {
   try {
-    const res = await fetch("api/users/user", {
+    const res = await fetch("/api/users/user", {
       cache: "no-store",
     });
     if (!res.ok) {
