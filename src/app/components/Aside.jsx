@@ -1,12 +1,12 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import { BsBoxArrowInRight } from "react-icons/bs";
+import { BsBoxArrowInRight} from "react-icons/bs";
 import { BsHouseDoor } from "react-icons/bs";
 import { BsFillChatSquareTextFill } from "react-icons/bs";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
-import { BsChevronDoubleRight } from "react-icons/bs";
+import { BsChevronDoubleLeft } from "react-icons/bs";
 import { BsGear } from "react-icons/bs";
 import { BsMoon } from "react-icons/bs";
 import Link from "next/link";
@@ -33,7 +33,7 @@ const getUser = async () => {
 
 export default function Aside() {
   const router = useRouter();
-  const [open,setOpen] = useState(true)
+  const [open,setOpen] = useState(false)
   const onHome = () => {
     router.refresh();
     router.push("/");
@@ -89,9 +89,9 @@ if(user === null){
   )
 }
   return (
-    <div className="flex justify-center   ">
+    <div className="flex justify-center  z-1 ">
       <aside className="text-black h-screen bg-white z-1 ">
-        <div className={`p-4 flex flex-col gap-3 justify-between ${open ? "w-64" : "w-20"} duration-300 relative`}>
+        <div className={`p-4 flex flex-col gap-3 justify-between ${open ? "w-64" : "w-20"} duration-200 relative`}>
           <div cla>
             <div className={`${open ? "flex justify-between items-center w-full": ""}`}>
             <div className="bg-[url('/logo/test.jpg')] bg-cover bg-center w-11 h-11 rounded-full"></div>
@@ -109,7 +109,7 @@ if(user === null){
               className="flex gap-2 no-underline text-black "
             >
               <BsHouseDoor size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Home</span>
+              <div className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Home</div>
             </button>
             <div className="flex gap-2">
               <BsFillChatSquareTextFill size={22} />
@@ -127,7 +127,7 @@ if(user === null){
               className="flex gap-2 no-underline text-black"
             >
               <BsFillPeopleFill size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Register Admin</span>
+              <div className={`${open ? " gap-2 no-underline text-black": "hidden"}`}>Register Admin</div>
             </Link>
           </div>
           <div
@@ -141,14 +141,14 @@ if(user === null){
               <BsBoxArrowInRight size={22} />
               <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Logout</span>
             </button>
-            <div className="flex  bg-gray-200 rounded-lg">
+            <div className="flex  gap-2 bg-gray-200 rounded-lg">
               <BsMoon size={22} />
               <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Dark Mode</span>
             </div>
           </div>
-          <div className=" flex rounded-full">
-            <button onClick={()=> setOpen(!open )} className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center">
-            <BsChevronDoubleRight size={20} className={`${!open && "rotate-180"}`}/>
+          <div className=" flex justify-center rounded-full">
+            <button onClick={()=> setOpen(!open )} className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center ">
+            <BsChevronDoubleLeft size={20} className={`${!open && "rotate-180"}`}/>
             </button>
           </div>
         </div>

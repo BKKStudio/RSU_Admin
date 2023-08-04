@@ -89,9 +89,9 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="flex justify-center   mx-5">
-        <div className="max-w-screen-2xl w-full mt-2  mx-2">
-          <p className="mt-5   flex justify-end items-center gap-1 text-blue-500">
+      <div className="flex justify-center">
+        <div className="">
+          <p className="mt-5 flex justify-end items-center gap-1 text-blue-500">
             <BsQuestionCircle size={20} />
             Help & Report
           </p>
@@ -215,7 +215,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-5 flex justify-center">
+          <div className="mt-5 flex justify-center z-0 p-4">
           <Rechart alllevel={alllevel} bachelorsvalue={bachelorsvalue} mastersvalue={mastersvalue}  doctorsvalue={doctorsvalue} intervalue={intervalue} />
           </div>
         </div>

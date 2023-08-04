@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Layout from "../components/Layout";
 import Link from "next/link";
 import { BsPencilSquare } from "react-icons/bs";
@@ -7,23 +7,25 @@ import Swal from "sweetalert2";
 
 export default function NewStudents() {
   const [data, setData] = useState([]);
-  const [level,setLevel] = useState("")
-  const [text,setText] = useState("")
-  const [show,setShow] = useState(false)
+  const [level, setLevel] = useState("");
+  const [text, setText] = useState("");
+  const [show, setShow] = useState(false);
+  const apiUrl = process.env.API_URL;
 
   const GetBachelors = async () => {
-    setShow(false)
+    console.log(apiUrl);
+    setShow(false);
     try {
-      const res = await fetch("http://localhost:3000/api/bachelors", {
+      const res = await fetch(`http://localhost:3000/api/bachelors`, {
         cache: "no-store",
       });
       if (!res.ok) {
         throw new Error("Failed Fetch Data");
-      }else{
+      } else {
         const studentData = await res.json();
         setData(studentData);
-        setLevel("editstudent")
-        setText("ระดับปริญญาตรี")
+        setLevel("editstudent");
+        setText("ระดับปริญญาตรี");
         let timerInterval;
         Swal.fire({
           title: "กำลังโหลดข้อมูล",
@@ -35,7 +37,7 @@ export default function NewStudents() {
           },
           willClose: () => {
             clearInterval(timerInterval);
-            setShow(true)
+            setShow(true);
           },
         }).then((result) => {
           /* Read more about handling dismissals below */
@@ -50,18 +52,18 @@ export default function NewStudents() {
   };
 
   const GetMasters = async () => {
-    setShow(false)
+    setShow(false);
     try {
       const res = await fetch("http://localhost:3000/api/masters", {
         cache: "no-store",
       });
       if (!res.ok) {
         throw new Error("Failed Fetch Data");
-      }else{
+      } else {
         const studentData = await res.json();
         setData(studentData);
-        setLevel("editmasters")
-        setText("ระดับปริญญาโท")
+        setLevel("editmasters");
+        setText("ระดับปริญญาโท");
         let timerInterval;
         Swal.fire({
           title: "กำลังโหลดข้อมูล",
@@ -73,7 +75,7 @@ export default function NewStudents() {
           },
           willClose: () => {
             clearInterval(timerInterval);
-            setShow(true)
+            setShow(true);
           },
         }).then((result) => {
           /* Read more about handling dismissals below */
@@ -88,18 +90,18 @@ export default function NewStudents() {
   };
 
   const GetDoctors = async () => {
-    setShow(false)
+    setShow(false);
     try {
       const res = await fetch("http://localhost:3000/api/doctors", {
         cache: "no-store",
       });
       if (!res.ok) {
         throw new Error("Failed Fetch Data");
-      }else{
+      } else {
         const studentData = await res.json();
         setData(studentData);
-        setLevel("editdoctors")
-        setText("ระดับปริญญาเอก")
+        setLevel("editdoctors");
+        setText("ระดับปริญญาเอก");
         let timerInterval;
         Swal.fire({
           title: "กำลังโหลดข้อมูล",
@@ -111,7 +113,7 @@ export default function NewStudents() {
           },
           willClose: () => {
             clearInterval(timerInterval);
-            setShow(true)
+            setShow(true);
           },
         }).then((result) => {
           /* Read more about handling dismissals below */
@@ -126,18 +128,18 @@ export default function NewStudents() {
   };
 
   const GetInternationals = async () => {
-    setShow(false)
+    setShow(false);
     try {
       const res = await fetch("http://localhost:3000/api/internationals", {
         cache: "no-store",
       });
       if (!res.ok) {
         throw new Error("Failed Fetch Data");
-      }else{
+      } else {
         const studentData = await res.json();
         setData(studentData);
-        setLevel("editinters")
-        setText("หลักสูตร International")
+        setLevel("editinters");
+        setText("หลักสูตร International");
         let timerInterval;
         Swal.fire({
           title: "กำลังโหลดข้อมูล",
@@ -149,7 +151,7 @@ export default function NewStudents() {
           },
           willClose: () => {
             clearInterval(timerInterval);
-            setShow(true)
+            setShow(true);
           },
         }).then((result) => {
           /* Read more about handling dismissals below */
@@ -163,29 +165,90 @@ export default function NewStudents() {
     }
   };
 
-
   return (
     <Layout>
-      <p className="text-center bg-pink-600 p-3 text-white text-2xl">
+      <div className="m-5">
+      <div
+        id="carouselExampleInterval"
+        className="carousel slide "
+        data-bs-ride="carousel"
+      >
+        <div className="carousel-inner rounded-lg">
+          <div className="carousel-item active" data-bs-interval="10000">
+            <img
+              className="d-block w-100  bg-[url('https://www2.rsu.ac.th/Upload/images/wall/RSU-contact.jpg')] bg-cover bg-center h-72 rounded-lg"
+              alt=""
+            />
+          </div>
+          <div className="carousel-item" data-bs-interval="2000">
+            <div
+              className="d-block w-100  bg-[url('https://f.ptcdn.info/924/039/000/o27s3jddvBq8n4kyhZn-o.jpg')] bg-cover bg-center h-72 rounded-lg"
+              alt=""
+            />
+          </div>
+          <div className="carousel-item">
+            <div
+              className="d-block w-100  bg-[url('https://f.ptcdn.info/924/039/000/o27rtaev1kNerEQF5Me-o.jpg')] bg-cover bg-center h-72 h-72 rounded-lg"
+              alt=""
+            />
+          </div>
+        </div>
+        <button
+          className="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="prev"
+        >
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Previous</span>
+        </button>
+        <button
+          className="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleInterval"
+          data-bs-slide="next"
+        >
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
+          <span className="visually-hidden">Next</span>
+        </button>
+      </div>
+      <p className="text-center bg-pink-600 p-3 text-white text-2xl mt-2">
         นักศึกษาใหม่ {text}
       </p>
       <div className="flex mt-2 gap-2 justify-center">
-        <button className="bg-red-600 p-2 rounded text-white" onClick={GetBachelors}>
+        <button
+          className="bg-red-600 p-2 rounded text-white"
+          onClick={GetBachelors}
+        >
           ปริญญาตรี
         </button>
-        <button className="bg-green-600 p-2 rounded text-white"  onClick={GetMasters}>
+        <button
+          className="bg-green-600 p-2 rounded text-white"
+          onClick={GetMasters}
+        >
           ปริญญาโท
         </button>
-        <button className="bg-yellow-500 p-2 rounded text-white" onClick={GetDoctors}>
+        <button
+          className="bg-yellow-500 p-2 rounded text-white"
+          onClick={GetDoctors}
+        >
           ปริญญาเอก
         </button>
-        <button className="bg-purple-600 p-2 rounded text-white" onClick={GetInternationals}>
+        <button
+          className="bg-purple-600 p-2 rounded text-white"
+          onClick={GetInternationals}
+        >
           International
         </button>
       </div>
-      <div className="w-full mt-2 text-center">
-        <div>
-        </div>
+      <div className=" text-center bg-white shadow-lg rounded-lg mt-2">
+        <div></div>
         <table className="w-full border">
           <thead>
             <tr>
@@ -201,7 +264,8 @@ export default function NewStudents() {
             </tr>
           </thead>
           <tbody>
-            {show === true && data.length > 0 &&
+            {show === true &&
+              data.length > 0 &&
               data.map((student) => (
                 <tr key={student._id} className="border">
                   <td className="border text-sm p-2">{student.Faculty}</td>
@@ -213,7 +277,10 @@ export default function NewStudents() {
                   <td className="border text-sm p-2">{student.email}</td>
                   <td className="border text-sm p-2">{student.tell}</td>
                   <td className="border text-sm p-2">
-                    <Link href={`/${level}/${student._id}`} className={"flex justify-center"}>
+                    <Link
+                      href={`/${level}/${student._id}`}
+                      className={"flex justify-center"}
+                    >
                       <BsPencilSquare color={"red"} size={20} />
                     </Link>
                   </td>
@@ -221,6 +288,7 @@ export default function NewStudents() {
               ))}
           </tbody>
         </table>
+      </div>
       </div>
     </Layout>
   );

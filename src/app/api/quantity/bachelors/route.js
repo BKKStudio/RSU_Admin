@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 
 export async function GET() {
   await connect();
-
   try {
     const quantityBachelors = await Bachelors.aggregate([
       { $group: { _id: null, bachelorsvalue: { $sum: 1 } } },
