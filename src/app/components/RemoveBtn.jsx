@@ -15,7 +15,7 @@ export default function RemoveBtn({id,level}) {
           confirmButtonText: 'ใช่, ลบข้อมูล!'
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`http://localhost:3000/api/${level}?id=${id}`,{
+            fetch(`/api/${level}?id=${id}`,{
                 method:"DELETE",
             })
             Swal.fire(

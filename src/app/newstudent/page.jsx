@@ -16,7 +16,7 @@ export default function NewStudents() {
     console.log(apiUrl);
     setShow(false);
     try {
-      const res = await fetch(`http://localhost:3000/api/bachelors`, {
+      const res = await fetch(`/api/bachelors`, {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -54,7 +54,7 @@ export default function NewStudents() {
   const GetMasters = async () => {
     setShow(false);
     try {
-      const res = await fetch("http://localhost:3000/api/masters", {
+      const res = await fetch("/api/masters", {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -92,7 +92,7 @@ export default function NewStudents() {
   const GetDoctors = async () => {
     setShow(false);
     try {
-      const res = await fetch("http://localhost:3000/api/doctors", {
+      const res = await fetch("/api/doctors", {
         cache: "no-store",
       });
       if (!res.ok) {
@@ -130,7 +130,7 @@ export default function NewStudents() {
   const GetInternationals = async () => {
     setShow(false);
     try {
-      const res = await fetch("http://localhost:3000/api/internationals", {
+      const res = await fetch("/api/internationals", {
         cache: "no-store",
       });
       if (!res.ok) {

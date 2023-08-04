@@ -36,7 +36,7 @@ export default function EditStudentForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/${level}/${id}`, {
+      const res = await fetch(`/api/${level}/${id}`, {
         method: "PUT",
         headers: {
           "Content-type": "application/json",

@@ -4,7 +4,7 @@ import EditStudentForm from "@/app/components/EditStudentForm";
 
 const getStudentById = async (id) =>{
     try {
-        const res = await fetch(`http://localhost:3000/api/bachelors/${id}`,{
+        const res = await fetch(`/api/bachelors/${id}`,{
             cache:"no-store",
         })
         if(!res.ok){

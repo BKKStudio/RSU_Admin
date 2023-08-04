@@ -51,7 +51,7 @@ export default function Aside() {
 
   const onLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/users/logout", {
+      const res = await fetch("/api/users/logout", {
         cache: "no-store",
       });
       if (!res.ok) {
