@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;700&family=Sriracha&display=swap');
+
+.containerfooter{
+    box-sizing: border-box;
+    font-family: 'Comfortaa', cursive;
+    font-family: 'Sriracha', cursive;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    background-color: #58585b;
+    
+}
+.itemfooter{
+    width: 1200px;
+    background-color: #58585b;
+}
+.itemfooter p{
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.Line{
+    margin-bottom: 30px;
+    max-width: 1200px;
+    background-color: white;
+    height: 1px;
+    border-radius: 5px;
+}
+
+.faculty,.other{
+display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+}
+.faculty div,.other div{
+    padding: 20px;
+}
+
+.faculty h3,.other h3{
+    color: #ec008b;
+    font-size: 16px;
+}
+.faculty a,.other a{
+    display: flex;
+    justify-content: flex-start;
+   text-decoration: none;
+   color: white;
+    font-size: 10px;
+    padding: 3px;
+}
+.iconcontact{
+    display: flex;
+    margin-top: -1rem;
+    margin-left: -1rem;
+}
+.iconcontact a{
+    padding: 5px;
+}
+
+
+
