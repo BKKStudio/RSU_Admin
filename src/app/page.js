@@ -7,7 +7,14 @@ import React, { useState, useEffect } from "react";
 import Rechart from './components/Rechart';
 
 
-const getQuantityData = async (endpoint) => {
+
+export default function Home() {
+  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+
+  const getQuantityData = async (endpoint) => {
 
   try {
     const res = await fetch(`/api/quantity/${endpoint}`, {
@@ -22,6 +29,7 @@ const getQuantityData = async (endpoint) => {
     throw error;
   }
 };
+
 const getUser = async () => {
   try {
     const res = await fetch("/api/users/user", {
@@ -38,11 +46,7 @@ const getUser = async () => {
 };
 
 
-export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
