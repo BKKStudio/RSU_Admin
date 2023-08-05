@@ -15,7 +15,7 @@ export default function RemoveBtn({id,level}) {
           confirmButtonText: 'ใช่, ลบข้อมูล!'
         }).then((result) => {
           if (result.isConfirmed) {
-            fetch(`https://rsu-admin-web.vercel.app/api/${level}?id=${id}`,{
+            fetch(`/api/${level}?id=${id}`,{
                 method:"DELETE",
             })
             Swal.fire(
