@@ -42,7 +42,6 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
     const fetchData = async () => {
       try {
         const [bachelors, masters, doctors, inters, user] = await Promise.all([
@@ -68,7 +67,6 @@ export default function Home() {
     };
 
     fetchData();
-  }, []);
 
   if (loading) {
     return <div>Loading...</div>;
