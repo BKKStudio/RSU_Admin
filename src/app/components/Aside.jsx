@@ -8,6 +8,7 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { BsChevronDoubleLeft } from "react-icons/bs";
 import { BsGear } from "react-icons/bs";
+import { BsSunFill } from "react-icons/bs";
 import { BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -34,6 +35,7 @@ const getUser = async () => {
 export default function Aside() {
   const router = useRouter();
   const [open,setOpen] = useState(false)
+  const [darkmode,setDarkmodeMode] = useState(false)
   const onHome = () => {
     router.refresh();
     router.push("/");
@@ -82,6 +84,8 @@ export default function Aside() {
     }
   };
   
+
+  
 if(user === null){
   return(
     <div>Loading...</div>
@@ -89,8 +93,8 @@ if(user === null){
   )
 }
   return (
-    <div className="flex justify-center  z-1 ">
-      <aside className="text-black h-screen bg-white z-1 ">
+    <div className={`${darkmode ? "bg-white text-black duration-200 " : "bg-gray-900 text-white duration-200"}`}>
+      <aside className={` z-1 h-screen ${darkmode ? "bg-white text-black duration-200 " : "bg-gray-900 text-white duration-200"}`} >
         <div className={`p-4 flex flex-col gap-3 justify-between ${open ? "w-64" : "w-20"} duration-200 relative`}>
           <div cla>
             <div className={`${open ? "flex justify-between items-center w-full": ""}`}>
@@ -106,28 +110,28 @@ if(user === null){
           <div className="flex flex-column gap-4">
             <button
               onClick={onHome}
-              className="flex gap-2 no-underline text-black "
+              className="flex gap-2 no-underline"
             >
               <BsHouseDoor size={22} />
-              <div className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Home</div>
+              <div className={`${open ? "flex gap-2 no-underline": "hidden"}`}>Home</div>
             </button>
             <div className="flex gap-2">
               <BsFillChatSquareTextFill size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Post</span>
+              <span className={`${open ? "flex gap-2 no-underline ": "hidden"}`}>Post</span>
             </div>
             <Link
               href={"/newstudent"}
-              className="flex gap-2 no-underline text-black"
+              className={`flex gap-2 no-underline ${darkmode ? "text-black duration-200" : "text-white duration-200"}`}
             >
               <BsFillPersonPlusFill size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>New Student</span>
+              <span className={`${open ? "flex gap-2 no-underline ": "hidden"}`}>New Student</span>
             </Link>
             <Link
               href={"/signup"}
-              className="flex gap-2 no-underline text-black"
+              className={`flex gap-2 no-underline ${darkmode ? "text-black duration-200" : "text-white duration-200"}`}
             >
               <BsFillPeopleFill size={22} />
-              <div className={`${open ? " gap-2 no-underline text-black": "hidden"}`}>Register Admin</div>
+              <div className={`${open ? " gap-2 no-underline ": "hidden"}`}>Register Admin</div>
             </Link>
           </div>
           <div
@@ -135,19 +139,21 @@ if(user === null){
           >
             <div className="flex gap-2">
               <BsGear size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Setting</span>
+              <span className={`${open ? "flex gap-2 no-underline ": "hidden"}`}>Setting</span>
             </div>
             <button onClick={onLogout} className="flex gap-2">
               <BsBoxArrowInRight size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Logout</span>
+              <span className={`${open ? "flex gap-2 no-underline ": "hidden"}`}>Logout</span>
             </button>
-            <div className="flex  gap-2 bg-gray-200 rounded-lg">
-              <BsMoon size={22} />
-              <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Dark Mode</span>
+            <div className={`${open ? "flex p-2 gap-1 items-center bg-gray-200 rounded-lg" : ""}`}>
+              <button onClick={() => setDarkmodeMode(!darkmode)} className={`${open ? "bg-gray-400 w-20 rounded-full p-1.5 " : ""}`}>
+                <div className={`${open ? `${darkmode ? "p-1 bg-white rounded-full w-7 flex justify-center items-center duration-300" : " p-1 bg-white rounded-full w-7 flex justify-center items-center translate-x-10 duration-300"}` : `bg-gray-300 p-2 rounded-full duration-300`}`} ><BsSunFill size={15} className={`${darkmode ? "" : "hidden"}`}/><BsMoon size={15} className={`${darkmode ? "hidden" : `text-black duration-300 `}`}/></div>
+              </button>
+           <span className={`${open ? "flex gap-2 no-underline text-black": "hidden"}`}>Dark Mode</span>
             </div>
           </div>
           <div className=" flex justify-center rounded-full">
-            <button onClick={()=> setOpen(!open )} className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center ">
+            <button onClick={()=> setOpen(!open)} className="w-8 h-8 bg-gray-300 rounded-full flex justify-center items-center ">
             <BsChevronDoubleLeft size={20} className={`${!open && "rotate-180"}`}/>
             </button>
           </div>

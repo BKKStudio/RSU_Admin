@@ -90,7 +90,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="flex justify-center">
+      <div className="flex justify-center ">
         <div className="">
           <p className="mt-5 flex justify-end items-center gap-1 text-blue-500">
             <BsQuestionCircle size={20} />
