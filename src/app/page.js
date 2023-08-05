@@ -42,6 +42,7 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
+<<<<<<< HEAD
 
   const fetchData = async () => {
     try {
@@ -73,6 +74,33 @@ export default function Home() {
     const interval = setInterval(fetchData, 10000);
     return () => clearInterval(interval);
   }, []);
+=======
+    const fetchData = async () => {
+      try {
+        const [bachelors, masters, doctors, inters, user] = await Promise.all([
+          getQuantityData("bachelors"),
+          getQuantityData("masters"),
+          getQuantityData("doctors"),
+          getQuantityData("inters"),
+          getUser()
+        ]);
+
+        const alllevel =
+          bachelors.bachelorsvalue +
+          masters.mastersvalue +
+          doctors.doctorsvalue +
+          inters.intervalue;
+
+        setData({ bachelors, masters, doctors, inters, user, alllevel });
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+>>>>>>> f6db8c218a37df8e6a092c38dc04f9075c3003d7
 
   if (loading) {
     return <div>Loading...</div>;
