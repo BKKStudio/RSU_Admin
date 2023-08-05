@@ -7,7 +7,6 @@ import React, { useState, useEffect } from "react";
 import Rechart from './components/Rechart';
 
 const getQuantityData = async (endpoint) => {
-
   try {
     const res = await fetch(`/api/quantity/${endpoint}`, {
       cache: "no-store",
@@ -40,8 +39,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+ fetchData();
   const fetchData = async () => {
-    
     try {
         const [bachelors, masters, doctors, inters, user] = await Promise.all([
           getQuantityData("bachelors"),
