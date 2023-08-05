@@ -9,7 +9,7 @@ import Rechart from './components/Rechart';
 
 const getQuantityData = async (endpoint) => {
   try {
-    const res = await fetch(`api/quantity/${endpoint}`, {
+    const res = await fetch(`/api/quantity/${endpoint}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -42,32 +42,36 @@ export default function Home() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
+
+  const fetchData = async () => {
+    try {
+      const [bachelors, masters, doctors, inters, user] = await Promise.all([
+        getQuantityData("bachelors"),
+        getQuantityData("masters"),
+        getQuantityData("doctors"),
+        getQuantityData("inters"),
+        getUser()
+      ]);
+
+      const alllevel =
+        bachelors.bachelorsvalue +
+        masters.mastersvalue +
+        doctors.doctorsvalue +
+        inters.intervalue;
+
+      setData({ bachelors, masters, doctors, inters, user, alllevel });
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
+
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [bachelors, masters, doctors, inters, user] = await Promise.all([
-          getQuantityData("bachelors"),
-          getQuantityData("masters"),
-          getQuantityData("doctors"),
-          getQuantityData("inters"),
-          getUser()
-        ]);
-
-        const alllevel =
-          bachelors.bachelorsvalue +
-          masters.mastersvalue +
-          doctors.doctorsvalue +
-          inters.intervalue;
-
-        setData({ bachelors, masters, doctors, inters, user, alllevel });
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
     fetchData();
+    const interval = setInterval(fetchData, 10000);
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) {
