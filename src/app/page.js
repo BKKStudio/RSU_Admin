@@ -9,7 +9,7 @@ import Rechart from './components/Rechart';
 const getQuantityData = async (endpoint) => {
 
   try {
-    const res = await fetch('/api/quantity/' + endpoint + '?timestamp=' + Date.now(), {
+    const res = await fetch(`/api/quantity/${endpoint}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -21,7 +21,6 @@ const getQuantityData = async (endpoint) => {
     throw error;
   }
 };
-
 const getUser = async () => {
   try {
     const res = await fetch("/api/users/user", {
