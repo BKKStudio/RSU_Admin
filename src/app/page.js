@@ -22,6 +22,7 @@ const getQuantityData = async (endpoint) => {
   }
 };
 
+
 const getUser = async () => {
   try {
     const res = await fetch("/api/users/user", {
