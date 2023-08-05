@@ -39,7 +39,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
- fetchData();
   const fetchData = async () => {
     try {
         const [bachelors, masters, doctors, inters, user] = await Promise.all([
@@ -64,7 +63,7 @@ export default function Home() {
       }
     };
 
-
+ fetchData();
   
   useEffect(() => {
     fetchData();
