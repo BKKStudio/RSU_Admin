@@ -3,13 +3,9 @@ import Aside from "./Aside";
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen ">
-      <div className="flex ">
-        <div className="">
+    <div className="bg-gray-100 ">
         <Aside/>
-        </div>
-        <div className="flex-grow bg-gray-100">{children}</div>
-      </div>
+        <div className="bg-gray-100 mt-5">{children}</div>
     </div>
   );
 }

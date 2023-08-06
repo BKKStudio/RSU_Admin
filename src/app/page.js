@@ -5,6 +5,7 @@ import { BsPeopleFill } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Rechart from './components/Rechart';
+import DarkModeToggle from "./components/DarkModeToggle";
 
 
 const getQuantityData = async (endpoint) => {
@@ -42,6 +43,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -90,13 +92,15 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="flex justify-center ">
+      <div className={`mt-4 mx-4 p-3`}>
         <div className="">
-          <p className="mt-5 flex justify-end items-center gap-1 text-blue-500">
+          <p className="flex justify-between items-center gap-1">
+          <p className="text-3xl font-bold">Hi,{user.firstname} {user.lastname}!</p>
+            <div className=" text-blue-500 flex items-center gap-1 justify-center">
             <BsQuestionCircle size={20} />
             Help & Report
+            </div>
           </p>
-          <p className="text-3xl font-bold pb-3">Hi,{user.firstname} {user.lastname}!</p>
           <div className="rounded-lg ">
             <div
               id="carouselExampleInterval"
