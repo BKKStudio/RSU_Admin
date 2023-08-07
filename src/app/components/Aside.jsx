@@ -11,12 +11,14 @@ import { BsSunFill } from "react-icons/bs";
 import { BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
+import { ThemeProvider, useTheme } from "next-themes";
 import Image from "next/image";
+import DarkModeToggle from "./DarkModeToggle";
+
 
 const getUser = async () => {
   try {
-    const res = await fetch("/api/users/user", {
+    const res = await fetch(`/api/users/user`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -80,18 +82,12 @@ export default function Aside() {
     }
   };
 
-  const Darkmode = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   if (user === null) {
     return <div>Loading...</div>;
   }
   return (
-    <div className={` text-black bg-gray-100 p-1`}>
-      <nav
-        className={`bg-white text-black mt-4 mx-4 p-3 rounded-lg shadow-full`}
-      >
+    <div className={` text-black bg-gray-100 p-1 `}>
+      <nav className={`bg-white text-black mt-4 mx-4 p-3 rounded-lg shadow-full`}>
         <div className={`flex  justify-between  bg-white z-1`}>
           <div>
             <div className={`flex `}>
@@ -103,16 +99,8 @@ export default function Aside() {
                 <span className="text-gray-500 text-sm">{user.username}</span>
               </div>
               <div className="bg-gray-300 w-0.5 h-11 rounded ml-2"></div>
-              <button
-                onClick={onLogout}
-                className="flex gap-1 justify-center items-center ml-2 bg-red-400 text-white p-1 rounded-lg"
-              >
-                <BsBoxArrowInRight size={22} />
-                <span className={`flex gap-2 no-underline`}>Logout</span>
-              </button>
             </div>
           </div>
-
           <button
             className=" xl:hidden flex items-center"
             type="button"
@@ -170,6 +158,13 @@ export default function Aside() {
               <BsGear size={22} />
               <span className={`flex gap-2 no-underline `}>Setting</span>
             </div>
+            <button
+                onClick={onLogout}
+                className="flex gap-1 justify-center items-center ml-2 bg-red-400 text-white p-1 rounded-lg"
+              >
+                <BsBoxArrowInRight size={22} />
+                <span className={`flex gap-2 no-underline`}>Logout</span>
+              </button>
               </p>
             </div>
           </div>
@@ -203,6 +198,13 @@ export default function Aside() {
               <BsGear size={22} />
               <span className={`flex gap-2 no-underline `}>Setting</span>
             </div>
+            <button
+                onClick={onLogout}
+                className="flex gap-1 justify-center items-center ml-2 bg-red-400 text-white p-1 rounded-lg"
+              >
+                <BsBoxArrowInRight size={22} />
+                <span className={`flex gap-2 no-underline`}>Logout</span>
+              </button>
           </div>
         </div>
       </nav>

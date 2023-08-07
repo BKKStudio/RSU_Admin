@@ -1,20 +1,20 @@
 "use client"
-import Layout from "./components/Layout";
+import Layout from "../components/Layout";
 import { BsQuestionCircle } from "react-icons/bs";
 import { BsPeopleFill } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import Rechart from './components/Rechart';
+import Rechart from '../components/Rechart';
 
 
-const getQuantityData = async (endpoint) => {
 
+const getQuantityBachelors = async () => {
   try {
-    const res = await fetch(`/api/quantity/${endpoint}`, {
+    const res = await fetch(`/api/quantity/bachelors`, {
       cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error(`Failed to fetch quantity data for ${endpoint}`);
+      throw new Error(`Failed to fetch quantity data for bachelors`);
     }
     return res.json();
   } catch (error) {
@@ -22,6 +22,9 @@ const getQuantityData = async (endpoint) => {
     throw error;
   }
 };
+
+
+
 const getUser = async () => {
   try {
     const res = await fetch("/api/users/user", {
@@ -38,39 +41,33 @@ const getUser = async () => {
 };
 
 
-export default function Home() {
+export default  function Test() {
+
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const [bachelors, user] = await Promise.all([
+        getQuantityBachelors(),
+        getUser()
+      ]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [bachelors, masters, doctors, inters, user] = await Promise.all([
-          getQuantityData("bachelors"),
-          getQuantityData("masters"),
-          getQuantityData("doctors"),
-          getQuantityData("inters"),
-          getUser()
-        ]);
+      const alllevel =
+        bachelors.bachelorsvalue 
 
-        const alllevel =
-          bachelors.bachelorsvalue +
-          masters.mastersvalue +
-          doctors.doctorsvalue +
-          inters.intervalue;
+      setData({ bachelors, user, alllevel });
+      setLoading(false);
+    } catch (error) {
+      setError(error);
+      setLoading(false);
+    }
+  };
 
-        setData({ bachelors, masters, doctors, inters, user, alllevel });
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
+  fetchData();
+}, []);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -82,12 +79,10 @@ export default function Home() {
 
   const {
     bachelors: { bachelorsvalue },
-    masters: { mastersvalue },
-    doctors: { doctorsvalue },
-    inters: { intervalue },
     user,
     alllevel,
   } = data;
+
 
   return (
     <Layout>
@@ -186,7 +181,7 @@ export default function Home() {
                   นักศึกษาใหม่ (ปริญญาโท)
                 </p>
                 <p className="flex items-center gap-1 text-4xl font-bold text-purple-500">
-                {mastersvalue} <BsPeopleFill size={27} />
+              <BsPeopleFill size={27} />
                 </p>
                 <p className="flex items-center gap-1 ">ประจำปีการศึกษา 2566</p>
                 <p className="flex items-center gap-1 text-xs text-gray-500">
@@ -198,7 +193,7 @@ export default function Home() {
                   นักศึกษาใหม่ (ปริญญาเอก)
                 </p>
                 <p className="flex items-center gap-1 text-4xl font-bold text-rose-500">
-                {doctorsvalue}  <BsPeopleFill size={27} />
+                  <BsPeopleFill size={27} />
                 </p>
                 <p className="flex items-center gap-1 ">ประจำปีการศึกษา 2566</p>
                 <p className="flex items-center gap-1 text-xs text-gray-500">
@@ -210,7 +205,7 @@ export default function Home() {
                   นักศึกษาใหม่ (International)
                 </p>
                 <p className="flex items-center gap-1 text-4xl font-bold text-sky-500">
-                 {intervalue} <BsPeopleFill size={27} />
+                  <BsPeopleFill size={27} />
                 </p>
                 <p className="flex items-center gap-1 ">ประจำปีการศึกษา 2566</p>
                 <p className="flex items-center gap-1 text-xs text-gray-500  ">
@@ -220,7 +215,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-5 flex justify-center z-0 p-4">
-          <Rechart alllevel={alllevel} bachelorsvalue={bachelorsvalue} mastersvalue={mastersvalue}  doctorsvalue={doctorsvalue} intervalue={intervalue} />
+          <Rechart alllevel={alllevel} bachelorsvalue={bachelorsvalue}  />
           </div>
         </div>
       </div>

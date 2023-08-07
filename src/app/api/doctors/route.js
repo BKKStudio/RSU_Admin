@@ -7,9 +7,10 @@ export async function  GET() {
     const newStudent = await Doctors.find()
     return NextResponse.json(newStudent)
 }
+
 export async function DELETE(req){
     const id = req.nextUrl.searchParams.get('id')
     await connect();
-    await  Masters.findByIdAndDelete(id)
+    await  Doctors.findByIdAndDelete(id)
    return NextResponse.json({message:"Deleted Success"},{status:200})
 }
