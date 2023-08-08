@@ -38,11 +38,12 @@ const alllevels = alllevel
         setChartOption({
             plugins: {
                 legend: {
-                    position: 'left',
+                    position: 'top',
                 },
                 title: {
                     display: true,
                     text: 'นักศึกษาใหม่ ประจำปีการศึกษา 2566',
+                    
                 }
             },
             maintainAspectRatio: false,
@@ -51,7 +52,7 @@ const alllevels = alllevel
     },[])
     return(
         <>
-        <div className='xl:max-w-screen-2xl w-full  md:col-span-2 relative w-full  lg:h-[70vh] h-[50vh]  w-full m-auto p-4 border rounded-lg bg-white shadow-lg'>
+        <div className='xl:w-3/4  md:col-span-2 relative w-full  lg:h-[70vh] h-[50vh]  w-full m-auto p-3 border  bg-white shadow-lg rounded-lg '>
             <Bar data={chartData} options={chartOption}/>
         </div>
         </>

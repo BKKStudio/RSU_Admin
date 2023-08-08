@@ -5,6 +5,8 @@ import { BsPeopleFill } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Rechart from './components/Rechart';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 
 const getQuantityData = async (endpoint) => {
@@ -43,6 +45,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
+  const [value, onChange] = useState(new Date());
 
 
   useEffect(() => {
@@ -92,7 +95,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className={`mt-4 mx-4 p-3`}>
+      <div className={`mt-2 mx-4 p-3`}>
         <div className="">
           <p className="flex justify-between items-center gap-1">
           <p className="text-3xl font-bold">Hi,{user.firstname} {user.lastname}!</p>
@@ -220,8 +223,19 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-5 flex justify-center z-0 p-4">
+          <div className="mt-5 flex justify-center flex gap-2 rounded-lg flex-wrap">
           <Rechart alllevel={alllevel} bachelorsvalue={bachelorsvalue} mastersvalue={mastersvalue}  doctorsvalue={doctorsvalue} intervalue={intervalue} />
+          <div className="bg-white p-4 rounded-lg shadow-lg text-center">
+            <span className="text-xl">Calendar</span>
+            <div>
+            <Calendar
+                onChange={onChange}
+                value={value}
+                className="mt-2"
+            />
+
+        </div>
+          </div>
           </div>
         </div>
       </div>

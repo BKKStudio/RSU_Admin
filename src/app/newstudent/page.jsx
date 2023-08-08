@@ -166,7 +166,7 @@ export default function NewStudents() {
 
   return (
     <Layout>
-      <div className="m-5">
+      <div className="m-4">
       <div
         id="carouselExampleInterval"
         className="carousel slide "
@@ -246,8 +246,7 @@ export default function NewStudents() {
           International
         </button>
       </div>
-      <div className=" text-center bg-white shadow-lg rounded-lg mt-2">
-        <div></div>
+      <div className="overflow-auto text-center bg-white shadow-lg rounded-lg mt-2">
         <table className="w-full border">
           <thead>
             <tr>

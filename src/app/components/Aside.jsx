@@ -33,8 +33,6 @@ const getUser = async () => {
 
 export default function Aside() {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
-  const { theme, setTheme } = useTheme();
   const onHome = () => {
     router.refresh();
     router.push("/");
