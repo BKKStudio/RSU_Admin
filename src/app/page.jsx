@@ -23,9 +23,9 @@ const getQuantityData = async (endpoint) => {
   }
 };
 const getUser = async () => {
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
   try {
-    const res = await fetch(`${apiUrl}/api/users/user`, {
+    const res = await fetch(`/api/users/user`, {
       cache: "no-store",
     });
     if (!res.ok) {
