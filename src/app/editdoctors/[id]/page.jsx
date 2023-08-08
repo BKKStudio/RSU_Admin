@@ -3,8 +3,10 @@ import EditStudentForm from "@/app/components/EditStudentForm";
 
 
 const getStudentById = async (id) =>{
+    const apiUrl = process.env.API_URL
+    console.log(apiUrl);
     try {
-        const res = await fetch(`https://rsu-admin-4z09pz94y-bkkstudio.vercel.app/api/doctors/${id}`,{
+        const res = await fetch(`${apiUrl}/api/doctors/${id}`,{
             cache:"no-store",
         })
         if(!res.ok){

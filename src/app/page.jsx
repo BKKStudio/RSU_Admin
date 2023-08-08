@@ -8,9 +8,9 @@ import Rechart from './components/Rechart';
 
 
 const getQuantityData = async (endpoint) => {
-
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   try {
-    const res = await fetch(`/api/quantity/${endpoint}`, {
+    const res = await fetch(`${apiUrl}/api/quantity/${endpoint}`, {
       cache: "no-store",
     });
     if (!res.ok) {
@@ -23,8 +23,9 @@ const getQuantityData = async (endpoint) => {
   }
 };
 const getUser = async () => {
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
   try {
-    const res = await fetch("/api/users/user", {
+    const res = await fetch(`${apiUrl}/api/users/user`, {
       cache: "no-store",
     });
     if (!res.ok) {
