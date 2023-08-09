@@ -1,19 +1,17 @@
 "use client";
 import { useRouter } from "next/navigation";
 import Swal from "sweetalert2";
-import { BsChevronDoubleDown, BsBoxArrowInRight, BsList } from "react-icons/bs";
+import { BsBoxArrowInRight, BsList } from "react-icons/bs";
 import { BsHouseDoor } from "react-icons/bs";
 import { BsFillChatSquareTextFill } from "react-icons/bs";
 import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsFillPeopleFill } from "react-icons/bs";
 import { BsGear } from "react-icons/bs";
-import { BsSunFill } from "react-icons/bs";
-import { BsMoon } from "react-icons/bs";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { ThemeProvider, useTheme } from "next-themes";
 import Image from "next/image";
-import DarkModeToggle from "./DarkModeToggle";
+import StatusBtn from "./statuswork";
+
 
 
 const getUser = async () => {
@@ -97,6 +95,7 @@ export default function Aside() {
                 <span className="text-gray-500 text-sm">{user.username}</span>
               </div>
               <div className="bg-gray-300 w-0.5 h-11 rounded ml-2"></div>
+              <StatusBtn/>
             </div>
           </div>
           <button

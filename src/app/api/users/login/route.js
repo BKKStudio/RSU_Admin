@@ -7,8 +7,8 @@ import  jwt  from "jsonwebtoken";
 export async function POST(requst) {
    try {
         await  connect()
-       const {username,password} = await requst.json()
-       console.log(username,password);
+       const {username,password,statususe} = await requst.json()
+       console.log(username,password,statususe);
 
     //check if useradmin exists
    const user = await User.findOne({username})
@@ -45,3 +45,4 @@ export async function POST(requst) {
     return NextResponse.json({error:error.message},{status:500})
    }
 }
+

@@ -250,9 +250,9 @@ export default function NewStudents() {
         <table className="w-full border">
           <thead>
             <tr>
-              <th className="border p-2">คณะ/Faculty</th>
+              <th className="border p-2 w-56">คณะ/Faculty</th>
               <th className="border p-2">สาขา/Major</th>
-              <th className="border p-2">เลขบัตรประขาชน</th>
+              <th className="border p-2 w-56">เลขบัตรประขาชน</th>
               <th className="border p-2">Birthday</th>
               <th className="border p-2">Firstname</th>
               <th className="border p-2">Lastname</th>

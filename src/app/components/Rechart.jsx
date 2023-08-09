@@ -14,7 +14,6 @@ const Rechart =  ({alllevel,bachelorsvalue,mastersvalue,doctorsvalue,intervalue}
 const doctors = doctorsvalue
 const inters = intervalue
 const alllevels = alllevel
-  console.log(bachelors);
 
     const [chartData ,setChartData] = useState({
         datasets:[],

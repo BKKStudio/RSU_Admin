@@ -7,6 +7,7 @@ import React, { useState, useEffect } from "react";
 import Rechart from './components/Rechart';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import Alladmin from "./components/Alladmin";
 
 
 const getQuantityData = async (endpoint) => {
@@ -95,7 +96,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className={`mt-2 mx-4 p-3`}>
+      <div className={` mx-4 p-3 `}>
         <div className="">
           <p className="flex justify-between items-center gap-1">
           <p className="text-3xl font-bold">Hi,{user.firstname} {user.lastname}!</p>
@@ -223,7 +224,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="mt-5 flex justify-center flex gap-2 rounded-lg flex-wrap">
+          <div className="mt-5 flex justify-center flex gap-5 rounded-lg flex-wrap">
           <Rechart alllevel={alllevel} bachelorsvalue={bachelorsvalue} mastersvalue={mastersvalue}  doctorsvalue={doctorsvalue} intervalue={intervalue} />
           <div className="bg-white p-4 rounded-lg shadow-lg text-center">
             <span className="text-xl">Calendar</span>
@@ -233,7 +234,10 @@ export default function Home() {
                 value={value}
                 className="mt-2"
             />
-
+            <div className="mt-3 ">
+              <span className="text-xl">Admin User</span>
+              <Alladmin/>
+            </div>
         </div>
           </div>
           </div>

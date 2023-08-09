@@ -36,6 +36,10 @@ const userSchema = new mongoose.Schema({
     type:Boolean,
     default:false,
    },
+   statususe:{
+    type:Boolean,
+    default:false,
+   },
    forgotPasswordToken:String,
    forgotPasswordTokenExpiry:Date,
    verifyToken:String,
