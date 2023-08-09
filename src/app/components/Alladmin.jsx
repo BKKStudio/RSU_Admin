@@ -19,11 +19,9 @@ const getAlluser = async () =>{
 export default function Alladmin() {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
-    const [use,setUse] = useState(null)
     useEffect(()=>{
         getAlluser()
         .then((data) =>{setData(data)
-        setUse(data.usestatus)
       })
         .catch((error) => setError(error));
 
