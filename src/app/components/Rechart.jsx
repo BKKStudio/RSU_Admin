@@ -20,6 +20,8 @@ const Rechart = ({ alllevel, bachelorsvalue, mastersvalue, doctorsvalue, interva
         {
           label: 'นักศึกษา',
           data: [alllevel, bachelorsvalue, mastersvalue, doctorsvalue, intervalue],
+        borderColor: ['#84cc16','#ec4899','#a855f7','#f43f5e','#0ea5e9'],
+        backgroundColor: ['#84cc16','#ec4899','#a855f7','#f43f5e','#0ea5e9'],
         },
       ]
     })

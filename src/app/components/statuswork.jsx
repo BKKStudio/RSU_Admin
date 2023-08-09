@@ -57,7 +57,6 @@ export default function StatusBtn() {
   return (
     <div>
       <button
-        key={userstatus._id} 
         onClick={handleToggle}
         className={`p-2 ml-2 rounded-lg text-white ${st ? "bg-green-500" : "bg-red-500"}`}
       >
