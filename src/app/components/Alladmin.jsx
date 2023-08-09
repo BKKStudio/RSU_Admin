@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from "react";
 
 const getAlluser = async () =>{
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     try {
-        const res = await fetch(`/api/users/alluser`, {
+        const res = await fetch(`${apiUrl}/api/users/alluser`, {
           cache: "no-store",
         });
         if (!res.ok) {
