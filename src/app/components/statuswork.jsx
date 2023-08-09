@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 export default function StatusBtn() {
   const router = useRouter();
@@ -55,8 +55,14 @@ export default function StatusBtn() {
   };
 
   return (
-    <button onClick={handleToggle} className={`p-2 ml-2 rounded-lg text-white ${st ? "bg-green-500" : "bg-red-500"}`}>
-      {st ? "Active Now" : "Offline"}
-    </button>
+    <div>
+      <button
+        key={userstatus._id} 
+        onClick={handleToggle}
+        className={`p-2 ml-2 rounded-lg text-white ${st ? "bg-green-500" : "bg-red-500"}`}
+      >
+        {st ? "Active Now" : "Offline"}
+      </button>
+    </div>
   );
 }
