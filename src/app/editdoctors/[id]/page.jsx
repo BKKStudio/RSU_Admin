@@ -3,10 +3,8 @@ import EditStudentForm from "@/app/components/EditStudentForm";
 
 
 const getStudentById = async (id) =>{
-    const apiUrl = process.env.API_URL
-    console.log(apiUrl);
     try {
-        const res = await fetch(`${apiUrl}/api/doctors/${id}`,{
+        const res = await fetch(`https://rsu-admin.netlify.app/api/doctors/${id}`,{
             cache:"no-store",
         })
         if(!res.ok){

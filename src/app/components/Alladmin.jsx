@@ -33,10 +33,10 @@ export default function Alladmin() {
   return (
     <div>
       {data.map((alluser) => (
-        <div className="bg-gray-100 w-full" key={alluser._id}>
+        <div className="bg-gray-100 w-full">
           <div className="flex justify-between p-3">
             <div className="flex gap-2 items-center">
-              <div className="bg-[url('/logo/test.jpg')] bg-cover bg-center w-8 h-8 rounded-full"></div>
+              <div className="bg-[url('https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/abafe1ec-2208-4f59-a041-cee0e74f92b8/973127756/loma-vpn-screenshot.png')] bg-cover bg-center w-8 h-8 rounded-full"></div>
               <span>{alluser.firstname} {alluser.lastname}</span>
             </div>
             <div className="flex items-center gap-2">

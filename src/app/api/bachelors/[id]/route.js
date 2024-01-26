@@ -13,10 +13,22 @@ export async function PUT(req, { params }) {
     newLastname: lastname,
     newEmail: email,
     newTell: tell,
-  } =  await req.json();
+  } = await req.json();
   await connect();
-  await Bachelors.findByIdAndUpdate(id,{Faculty,Major,idcard,birthday,firstname,lastname,email,tell})
-  return NextResponse.json({message:"Updeated Data Success"},{status:200})
+  await Bachelors.findByIdAndUpdate(id, {
+    Faculty,
+    Major,
+    idcard,
+    birthday,
+    firstname,
+    lastname,
+    email,
+    tell,
+  });
+  return NextResponse.json(
+    { message: "Updeated Data Success" },
+    { status: 200 }
+  );
 }
 
 export async function GET(req,{params}) {

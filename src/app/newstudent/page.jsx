@@ -166,7 +166,7 @@ export default function NewStudents() {
 
   return (
     <Layout>
-      <div className="m-4">
+      <div className="max-w- mx-2">
       <div
         id="carouselExampleInterval"
         className="carousel slide "
@@ -220,7 +220,7 @@ export default function NewStudents() {
       <p className="text-center bg-pink-600 p-3 text-white text-2xl mt-2">
         นักศึกษาใหม่ {text}
       </p>
-      <div className="flex mt-2 gap-2 justify-center">
+      <div className=" mt-2 flex  gap-2 justify-center max-sm:grid max-sm:grid-cols-2">
         <button
           className="bg-red-600 p-2 rounded text-white"
           onClick={GetBachelors}
@@ -246,13 +246,13 @@ export default function NewStudents() {
           International
         </button>
       </div>
-      <div className="overflow-auto text-center bg-white shadow-lg rounded-lg mt-2">
-        <table className="w-full border">
-          <thead>
-            <tr>
-              <th className="border p-2 w-56">คณะ/Faculty</th>
+      <div className="max-xl:overflow-auto  text-center bg-white shadow-lg rounded-lg mt-2">
+        <table className="w-full max-lg:w-max border ">
+          <thead >
+            <tr >
+              <th className="border p-2" >คณะ/Faculty</th>
               <th className="border p-2">สาขา/Major</th>
-              <th className="border p-2 w-56">เลขบัตรประขาชน</th>
+              <th className="border p-2">เลขบัตรประขาชน</th>
               <th className="border p-2">Birthday</th>
               <th className="border p-2">Firstname</th>
               <th className="border p-2">Lastname</th>
@@ -261,7 +261,7 @@ export default function NewStudents() {
               <th className="border p-2">Edit</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="">
             {show === true &&
               data.length > 0 &&
               data.map((student) => (
@@ -269,7 +269,7 @@ export default function NewStudents() {
                   <td className="border text-sm p-2">{student.Faculty}</td>
                   <td className="border text-sm p-2">{student.Major}</td>
                   <td className="border text-sm p-2">{student.idcard}</td>
-                  <td className="border text-sm p-2">{student.birthday}</td>
+                  <td className="border text-sm p-2 ">{student.birthday}</td>
                   <td className="border text-sm p-2">{student.firstname}</td>
                   <td className="border text-sm p-2">{student.lastname}</td>
                   <td className="border text-sm p-2">{student.email}</td>

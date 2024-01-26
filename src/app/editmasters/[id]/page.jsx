@@ -4,7 +4,7 @@ import EditStudentForm from "@/app/components/EditStudentForm";
 
 const getStudentById = async (id) =>{
     try {
-        const res = await fetch(`https://rsu-admin-4z09pz94y-bkkstudio.vercel.app/api/masters/${id}`,{
+        const res = await fetch(`https://rsu-admin.netlify.app/api/masters/${id}`,{
             cache:"no-store",
         })
         if(!res.ok){

@@ -20,8 +20,8 @@ export async function PUT(req, { params }) {
 }
 
 export async function GET(req,{params}) {
-    const { id } = params;
-     await connect();
+    const {id} = params;
+    await connect();
     const newStudent = await Doctors.findOne({_id:id})
     return NextResponse.json({newStudent},{status:200})
 }

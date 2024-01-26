@@ -83,11 +83,11 @@ export default function Aside() {
   }
   return (
     <div className={` text-black bg-gray-100 p-1 `}>
-      <nav className={`bg-white text-black mt-4 mx-4 p-3 rounded-lg shadow-full`}>
+      <nav className={`bg-white text-black mt-4  p-3 rounded-lg shadow-full`}>
         <div className={`flex  justify-between  bg-white z-1`}>
           <div>
             <div className={`flex `}>
-              <div className="bg-[url('/logo/test.jpg')] bg-cover bg-center w-11 h-11 rounded-full"></div>
+              <div className="bg-[url('https://images.sftcdn.net/images/t_app-cover-l,f_auto/p/abafe1ec-2208-4f59-a041-cee0e74f92b8/973127756/loma-vpn-screenshot.png')] bg-cover bg-center w-11 h-11 rounded-full"></div>
               <div className={`flex flex-col justify-end items-end w-36`}>
                 <span className="text-base font-bold text-3xl">
                   {user.firstname} {user.lastname}
@@ -146,7 +146,6 @@ export default function Aside() {
             </Link>
             <Link
               href={"/signup"}
-              className={`flex gap-2 no-underline  justify-center p-2 text-black hover:bg-gray-300  rounded-lg`}
             >
               <BsFillPeopleFill size={22} />
               <div className={`gap-2 no-underline`}>Register Admin</div>
