@@ -146,6 +146,7 @@ export default function Aside() {
             </Link>
             <Link
               href={"/signup"}
+              className={`flex gap-2 no-underline  justify-center p-2 text-black hover:bg-gray-300  rounded-lg`}
             >
               <BsFillPeopleFill size={22} />
               <div className={`gap-2 no-underline`}>Register Admin</div>
@@ -185,7 +186,7 @@ export default function Aside() {
             </Link>
             <Link
               href={"/signup"}
-              className={`flex gap-2 no-underline text-black `}
+              className={`flex gap-2 no-underline text-black  `}
             >
               <BsFillPeopleFill size={22} />
               <div className={`gap-2 no-underline`}>Register Admin</div>
